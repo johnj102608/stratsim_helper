@@ -1,3 +1,5 @@
+https://github.com/johnj102608/stratsim_helper
+
 # StratSim Helper
 
 This program reads through StratSim "Financial Details" Excel files and populates a pre-built Excel dashboard template with the correct values.
