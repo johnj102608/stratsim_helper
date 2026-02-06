@@ -1,0 +1,12 @@
+{
+  "dashboard_template_name": "StratSim_Dashboard_Template.xlsx",
+  "output_dashboard_name": "StratSim_Dashboard_UPDATED.xlsx",
+  "input_prefix": "Competition - Financial Summary - Year ",
+  "financial_sheet_prefix": "Financial Details for ",
+  "firms": ["A","B","C","D","E","F","G"],
+  "year_sheet_prefix": "Year ",
+  "firm_prefix": "FIRM ",
+  "scan_max_rows": 250,
+  "scan_max_cols": 30,
+  "look_right_max": 4
+}
