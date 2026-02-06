@@ -45,6 +45,9 @@ project_folder/
 │
 └── StratSim_Dashboard_UPDATED.xlsx # output (created by script)
 
+## How to run this
+After having the template file and "Financial Details" ready, run main.exe, and you should see the output file generated.
+
 ## config.json
 Edit this file to change configs.
 Brief explanation for each row:
