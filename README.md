@@ -45,8 +45,12 @@ project_folder/
 │
 └── StratSim_Dashboard_UPDATED.xlsx # output (created by script)
 
+---
+
 ## How to run this
 After having the template file and "Financial Details" ready, run main.exe, and you should see the output file generated.
+
+---
 
 ## config.json
 Edit this file to change configs.
@@ -75,6 +79,8 @@ If this file is missing, the script will run with this following default config:
   "scan_max_cols": 30,
   "look_right_max": 4
 }
+
+---
 
 ## metric_aliases.json
 Edit this file if metric names differ between input files and the dashboard.
