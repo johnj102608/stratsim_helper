@@ -41,14 +41,14 @@ project_folder/
 ├── metric_aliases.json # optional name-mapping file
 │
 ├── Pre-built StratSim dashboard template
-├── StratSim "Financial Details" file
+├── StratSim "Financial Summary" file
 │
 └── StratSim_Dashboard_UPDATED.xlsx # output (created by script)
 
 ---
 
 ## How to run this
-After having the template file and "Financial Details" ready, run main.exe, and you should see the output file generated.
+After having the template file and "Financial Summary" ready, run main.exe, and you should see the output file generated.
 
 ---
 
@@ -57,8 +57,8 @@ Edit this file to change configs.
 Brief explanation for each row:
   "dashboard_template_name": name of the pre-built template,
   "output_dashboard_name": name of the output file,
-  "input_prefix": prefix of the StratSim "Financial Details" files,
-  "financial_sheet_prefix": prefix of each sheet within the StratSim "Financial Details" files,
+  "input_prefix": prefix of the StratSim "Financial Summary" files,
+  "financial_sheet_prefix": prefix of each sheet within the StratSim "Financial Summary" files,
   "firms": a list of firm names,
   "year_sheet_prefix": prefix of each year-sheet within the template,
   "firm_prefix": prefix of firms within the template,
@@ -66,7 +66,7 @@ Brief explanation for each row:
   "scan_max_cols": the number of columns this script should scan for data,
   "look_right_max": how far right a value MAY appear after a metric name  ----For example: |"Inventory"|      |      |  100  |
 
-If this file is missing, the script will run with this following default config:
+If this file is missing, the script will run with the following default config:
 {
   "dashboard_template_name": "StratSim_Dashboard_Template.xlsx",
   "output_dashboard_name": "StratSim_Dashboard_UPDATED.xlsx",
