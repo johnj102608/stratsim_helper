@@ -31,19 +31,23 @@ Everything is detected automatically.
 
 ---
 
-## Folder Structure
-Everything in the same folder.
+## Project Folder Structure
 
+All files should be placed in the same folder.
+
+```
 project_folder/
 │
 ├── StratSimHelper.exe
-├── config.json # configuration file
-├── metric_aliases.json # optional name-mapping file
+├── config.json                  # configuration file
+├── metric_aliases.json          # optional name-mapping file
 │
 ├── Pre-built StratSim dashboard template
 ├── StratSim "Financial Summary" file
 │
-└── StratSim_Dashboard_UPDATED.xlsx # output (created by script)
+└── StratSim_Dashboard_UPDATED.xlsx   # output (created by script)
+```
+
 
 ---
 
