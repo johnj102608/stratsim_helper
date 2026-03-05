@@ -5,9 +5,7 @@ import re
 import pandas as pd
 from openpyxl import load_workbook
 
-# ======================
-# BASE
-# ======================
+
 #BASE_DIR = Path(__file__).parent
 #BASE_DIR = Path(sys.executable).parent
 def get_app_dir():
@@ -19,15 +17,13 @@ def get_app_dir():
         return Path(__file__).parent
 
 BASE_DIR = get_app_dir()
-# ======================
-# JSON FILES (next to your script)
-# ======================
+
+# JSON FILES
 CONFIG_PATH = BASE_DIR / "config.json"
 ALIASES_PATH = BASE_DIR / "metric_aliases.json"
 
-# ======================
+
 # DEFAULT CONFIG (used if config.json missing)
-# ======================
 DEFAULT_CONFIG = {
     "dashboard_template_name": "StratSim_Dashboard_2025-FL_Section01.xlsx",
     "output_dashboard_name": "StratSim_Dashboard_UPDATED.xlsx",
@@ -42,9 +38,6 @@ DEFAULT_CONFIG = {
 }
 
 
-# ======================
-# LOAD JSONS
-# ======================
 def load_config(path: Path) -> dict:
     """
     Load config.json with defaults + light validation.
@@ -116,9 +109,6 @@ def canonical_metric(metric: str, aliases: dict[str, str]) -> str:
     return aliases.get(m, m)
 
 
-# ======================
-# READ CONFIGS
-# ======================
 cfg = load_config(CONFIG_PATH)
 metric_aliases = load_metric_aliases(ALIASES_PATH)
 
@@ -138,9 +128,6 @@ LOOK_RIGHT_MAX = cfg["look_right_max"]
 
 
 
-# ----------------------
-# File helpers
-# ----------------------
 def parse_round_num(filename: str) -> int:
     """
     Extracts year number from:
@@ -174,9 +161,7 @@ def firm_label(letter: str) -> str:
     return f"{FIRM_PREFIX}{letter}"
 
 
-# ----------------------
 # Input parsing (scan-all firm sheets)
-# ----------------------
 _num_re = re.compile(r"^\(?-?\$?\d[\d,]*\.?\d*\)?%?$")
 
 
@@ -323,12 +308,14 @@ def read_firm_details_long(input_path: Path) -> pd.DataFrame:
     out["firm"] = out["firm"].astype(str).str.strip().str.upper()
     out["value"] = pd.to_numeric(out["value"], errors="coerce")
     out = out.dropna(subset=["metric", "firm", "value"])
+
+    # Keep FIRST occurrence of each (metric, firm) !!!
+    out = out.drop_duplicates(subset=["metric", "firm"], keep="first")
+
     return out
 
 
-# ----------------------
-# Output writing (whole-sheet writer, no block titles, auto metric column)
-# ----------------------
+# Output
 def find_firm_header_row(ws) -> int:
     """
     Find the row that looks most like the firm header row by counting
@@ -502,10 +489,8 @@ def pause_if_exe():
         input("\nPress Enter to exit...")
 
 
-# ----------------------
-# Main
-# ----------------------
 def main():
+    print("V. 2026 Mar 1")
     round_files = list_round_files()
     if not round_files:
         raise SystemExit("No round Excel files found.")
